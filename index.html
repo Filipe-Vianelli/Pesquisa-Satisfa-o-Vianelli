@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -36,9 +36,26 @@
       <br><p class="confidential-message">Aqui sua opinião é anônima. Sinta-se à vontade para ser sincero(a)</p>
 
       <div class="emoji-container">
-        <button class="emoji-button happy" onclick="enviarVoto('😃', this)">😃</button>
-        <button class="emoji-button neutral" onclick="enviarVoto('😐', this)">😐</button>
-        <button class="emoji-button sad" onclick="enviarVoto('😞', this)">😞</button>
+        <div class="emoji-wrapper">
+          <button class="emoji-button happy" onclick="enviarVoto('😄', this)">😄</button>
+          <div class="emoji-label">Muito bem</div>
+        </div>
+        <div class="emoji-wrapper">
+          <button class="emoji-button happy" onclick="enviarVoto('🙂', this)">🙂</button>
+          <div class="emoji-label">Bem</div>
+        </div>
+        <div class="emoji-wrapper">
+          <button class="emoji-button neutral" onclick="enviarVoto('😐', this)">😐</button>
+          <div class="emoji-label">Mais ou menos</div>
+        </div>
+        <div class="emoji-wrapper">
+          <button class="emoji-button sad" onclick="enviarVoto('😟', this)">😟</button>
+          <div class="emoji-label">Mal</div>
+        </div>
+        <div class="emoji-wrapper">
+          <button class="emoji-button sad" onclick="enviarVoto('😞', this)">😞</button>
+          <div class="emoji-label">Muito mal</div>
+        </div>
       </div>
       <div id="mensagem" class="message">
         Voto registrado com sucesso! Obrigado pelo seu feedback.
@@ -51,7 +68,7 @@
         <a href="https://docs.google.com/spreadsheets/d/1wI7blYwsPhiqLvkgtdi14wl4uebkObL1tuxlbs1uoz8/edit?gid=0#gid=0" target="_blank" class="admin-button">
           Resultados
         </a>
-        <a href="javascript:void(0);" onclick="showScreen('sectorScreen')" class="admin-button">
+        <a href="javascript:void(0);" onclick="showScreen('sectorScreen')" class="admin-button back-button" style="display:none;">
           Voltar
         </a>
       </div>
