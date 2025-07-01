@@ -6,7 +6,7 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #597562 0%, #3d4f42 100%);
+  background: linear-gradient(135deg, #5F7350 0%, #4A5043 100%);
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -16,10 +16,10 @@ body {
 }
 
 .container {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(242, 240, 235, 0.95); /* #F2F0EB with transparency */
   backdrop-filter: blur(20px);
   border-radius: 25px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(95, 115, 80, 0.1);
   padding: 40px 30px;
   text-align: center;
   max-width: 500px;
@@ -36,7 +36,7 @@ body {
   left: 0;
   right: 0;
   height: 10px;
-  background: linear-gradient(90deg, #8cb89a, #60b874, #597562, #4a6350);
+  background: linear-gradient(90deg, #768A6B, #A8B084, #5F7350, #4A5043);
   background-size: 200% 100%;
   animation: gradientShift 3s ease-in-out infinite;
 }
@@ -58,7 +58,7 @@ body {
 }
 
 h1 {
-  color: #2c3e2f;
+  color: #4A5043;
   font-size: 28px;
   font-weight: 600;
   margin-bottom: 35px;
@@ -71,6 +71,16 @@ h1 {
   gap: 25px;
   margin-bottom: 40px;
   flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.emoji-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  max-width: 130px;
+  width: 100%;
 }
 
 .emoji-button {
@@ -81,7 +91,7 @@ h1 {
   height: 130px;
   font-size: 70px;
   cursor: pointer;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 25px rgba(95, 115, 80, 0.1);
   position: relative;
   user-select: none;
   outline: none;
@@ -93,26 +103,63 @@ h1 {
   -ms-user-select: none;
 }
 
+.emoji-label {
+  font-size: 18px;
+  color: #4A5043;
+  font-weight: 600;
+  user-select: none;
+  text-align: center;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .emoji-wrapper {
+    max-width: 92px;
+  }
+
+  .emoji-label {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .emoji-wrapper {
+    max-width: 86px;
+  }
+
+  .emoji-label {
+    font-size: 13px;
+  }
+}
+
 .emoji-button:focus,
 .emoji-button:active {
   outline: none;
 }
 
 .emoji-button.happy {
-  background: linear-gradient(135deg, #8da292 0%, #6b8471 100%);
+  background: #ffe59a;
+}
+
+.emoji-button.happy:nth-child(2) {
+  background: #fff0d0;
 }
 
 .emoji-button.neutral {
-  background: linear-gradient(135deg, #677a6c 0%, #587461 100%);
+  background: #e99998;
 }
 
-.emoji-button.sad {
-  background: linear-gradient(135deg, #4a6350 0%, #3d4f42 100%);
+.emoji-button.sad:nth-child(1) {
+  background: #cbd9f8;
+}
+
+.emoji-button.sad:nth-child(2) {
+  background: #a2c4f3;
 }
 
 .message {
-  background: linear-gradient(135deg, #597562 0%, #6b8471 100%);
-  color: white;
+  background: linear-gradient(135deg, #5F7350 0%, #768A6B 100%);
+  color: #F2F0EB;
   padding: 25px;
   border-radius: 15px;
   font-size: 20px;
@@ -120,7 +167,7 @@ h1 {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.5s ease;
-  box-shadow: 0 10px 25px rgba(89, 117, 98, 0.3);
+  box-shadow: 0 10px 25px rgba(95, 115, 80, 0.3);
 }
 
 .message.show {
@@ -145,10 +192,32 @@ h1 {
 
 .voting-screen {
   display: none;
+  position: relative;
 }
 
 .voting-screen.active {
   display: block;
+}
+
+.back-button {
+  display: inline-block;
+  margin-top: 0;
+  padding: 4px 8px;
+  background: transparent;
+  color: #5F7350;
+  font-size: 13px;
+  border-radius: 0;
+  font-weight: normal;
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  opacity: 1;
+  text-decoration: underline;
+  background: transparent;
 }
 
 .sector-grid {
@@ -159,17 +228,18 @@ h1 {
 }
 
 .sector-button {
-  background: linear-gradient(135deg, #597562 0%, #6b8471 100%);
-  color: white;
-  border: none;
+  background: linear-gradient(135deg, #5F7350 0%, #4A5043 100%);
+  color: #FAD2D2;
+  border: 1.5px solid #4A5043;
   border-radius: 12px;
-  padding: 15px 20px;
-  font-size: 16px;
+  padding: 18px 24px;
+  font-size: 18px;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(89, 117, 98, 0.2);
+  box-shadow: 0 6px 20px rgba(95, 115, 80, 0.35);
   width: 100%;
-  min-height: 50px;
+  min-height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -178,7 +248,7 @@ h1 {
 
 .sector-button:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(89, 117, 98, 0.3);
+  box-shadow: 0 8px 25px rgba(95, 115, 80, 0.9);
 }
 
 .sector-button:active {
@@ -192,7 +262,7 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(89, 117, 98, 0.95);
+  background: rgba(95, 115, 80, 0.95);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -210,7 +280,7 @@ h1 {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.5s ease forwards;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(234, 219, 203, 0.9);
   border-radius: 15px;
   padding: 15px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
@@ -243,7 +313,7 @@ h1 {
 }
 
 .loading-text {
-  color: white;
+  color: #F2F0EB;
   font-size: 20px;
   font-weight: 500;
   text-align: center;
@@ -375,8 +445,8 @@ h1 {
 .footer {
   margin-top: 30px;
   padding-top: 20px;
-  border-top: 1px solid rgba(89, 117, 98, 0.2);
-  color: #597562;
+  border-top: 1px solid rgba(95, 115, 80, 0.2);
+  color: #5F7350;
   font-size: 17px;
   opacity: 0.8;
   transition: opacity 0.3s ease;
@@ -387,7 +457,7 @@ h1 {
 }
 
 .footer strong {
-  color: #4a6350;
+  color: #4A5043;
   font-weight: 600;
 }
 
@@ -399,7 +469,7 @@ h1 {
   display: inline-block;
   padding: 4px 8px;
   background: transparent;
-  color: #597562;
+  color: #5F7350;
   text-decoration: none;
   font-size: 13px;
   transition: all 0.3s ease;
@@ -412,7 +482,7 @@ h1 {
 }
 
 .confidential-message {
-  color: #597562;
+  color: #5F7350;
   font-size: 15px;
   margin: -25px 0 30px;
   padding: 0 20px;
