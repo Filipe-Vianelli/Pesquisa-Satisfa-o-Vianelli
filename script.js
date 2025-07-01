@@ -4,6 +4,7 @@ let votingBlocked = false;
 
 function showScreen(screenId) {
   const loadingOverlay = document.querySelector('.loading-overlay');
+  const backButton = document.querySelector('.back-button');
 
   // Exibe o overlay de carregamento
   loadingOverlay.classList.add('active');
@@ -17,6 +18,15 @@ function showScreen(screenId) {
 
     // Mostra a tela alvo
     document.getElementById(screenId).classList.add('active');
+
+    // Controla a visibilidade do botão Voltar
+    if (backButton) {
+      if (screenId === 'votingScreen') {
+        backButton.style.display = 'inline-block';
+      } else {
+        backButton.style.display = 'none';
+      }
+    }
 
     // Oculta o overlay de carregamento
     loadingOverlay.classList.remove('active');
@@ -35,8 +45,9 @@ function createParticles(button, emoji) {
 
   // Define a classe da partícula de acordo com o emoji
   let particleClass = 'neutral';
-  if (emoji === '😃') particleClass = 'happy';
-  if (emoji === '😞') particleClass = 'sad';
+  if (emoji === '😄' || emoji === '🙂') particleClass = 'happy';
+  else if (emoji === '😐') particleClass = 'neutral';
+  else if (emoji === '😟' || emoji === '😞') particleClass = 'sad';
 
   for (let i = 0; i < 12; i++) {
     const particle = document.createElement('div');
