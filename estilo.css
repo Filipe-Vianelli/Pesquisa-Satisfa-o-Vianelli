@@ -35,7 +35,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 10px;
+  height: 12px;
   background: linear-gradient(90deg, #768A6B, #A8B084, #5F7350, #4A5043);
   background-size: 200% 100%;
   animation: gradientShift 3s ease-in-out infinite;
@@ -137,24 +137,31 @@ h1 {
   outline: none;
 }
 
+/* Removed old nth-child selectors on emoji-button */
+
 .emoji-button.happy {
-  background: #ffe59a;
+  /* background: #e4b93a; */
+  background: #d6cc3f; /* fallback for first happy emoji */
 }
 
-.emoji-button.happy:nth-child(2) {
-  background: #fff0d0;
+.emoji-container .emoji-wrapper:nth-child(1) .emoji-button {
+  background: #ffee56; /* Muito bem */
 }
 
-.emoji-button.neutral {
-  background: #e99998;
+.emoji-container .emoji-wrapper:nth-child(2) .emoji-button {
+  background: #f3e13f; /* Bem */
 }
 
-.emoji-button.sad:nth-child(1) {
-  background: #cbd9f8;
+.emoji-container .emoji-wrapper:nth-child(3) .emoji-button {
+  background: #e47e7c; /* Mais ou menos */
 }
 
-.emoji-button.sad:nth-child(2) {
-  background: #a2c4f3;
+.emoji-container .emoji-wrapper:nth-child(4) .emoji-button {
+  background: #abc5ff; /* Mal */
+}
+
+.emoji-container .emoji-wrapper:nth-child(5) .emoji-button {
+  background: #69a7ff; /* Muito mal */
 }
 
 .message {
